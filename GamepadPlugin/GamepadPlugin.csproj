@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net481</TargetFramework>
+		<OutputType>Library</OutputType>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<AssemblyTitle>LumosGUIPluginTemplates</AssemblyTitle>
+		<Product>LumosGUIPluginTemplates</Product>
+		<Copyright>Copyright © 2025</Copyright>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<LangVersion>9</LangVersion>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<DMXCInstallDir>C:\Program Files (x86)\DMXControl3</DMXCInstallDir>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="ppy.SDL2-CS" Version="1.0.82" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="LumosControlsWPF">
+			<HintPath>$(DMXCInstallDir)\GUI\LumosControlsWPF.dll</HintPath>
+		</Reference>
+		<Reference Include="LumosGUI">
+			<HintPath>$(DMXCInstallDir)\GUI\LumosGUI.exe</HintPath>
+		</Reference>
+		<Reference Include="LumosLIB">
+		  <HintPath>$(DMXCInstallDir)\GUI\LumosLIB.dll</HintPath>
+		</Reference>
+		<Reference Include="LumosProtobuf">
+		  <HintPath>$(DMXCInstallDir)\GUI\LumosProtobuf.dll</HintPath>
+		</Reference>
+		<Reference Include="LumosToolsLIB">
+			<HintPath>$(DMXCInstallDir)\GUI\LumosToolsLIB.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="ViewModels\" />
+	</ItemGroup>
+
+	<Target Name="PostBuildDeploy" AfterTargets="Build">
+		<!-- Basisverzeichnis -->
+		<PropertyGroup>
+			<PluginTargetDir>$(DMXCInstallDir)\GUI\Plugins\Gamepad</PluginTargetDir>
+			<ApiDllTargetDir>$(DMXCInstallDir)\GUI\Plugins\api-dlls</ApiDllTargetDir>
+		</PropertyGroup>
+
+		<!-- Erstelle Zielordner -->
+		<MakeDir Directories="$(PluginTargetDir)" />
+		<MakeDir Directories="$(ApiDllTargetDir)" />
+
+		<!-- Kopiere eigene Plugin-DLL -->
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginTargetDir)" />
+
+		<!-- Kopiere alle abhängigen DLLs -->
+		<ItemGroup>
+			<PluginDependencies Include="$(OutputPath)SDL*.dll" Exclude="$(TargetPath)" />
+			<PluginDependencies2 Include="$(OutputPath)/Dependencies/SDL*.dll" Exclude="$(TargetPath)" />
+			<GamepadLib Include="$(OutputPath)Gamepad*.dll" />
+		</ItemGroup>
+		<Copy SourceFiles="@(PluginDependencies)" DestinationFolder="$(ApiDllTargetDir)" SkipUnchangedFiles="false" />
+		<Copy SourceFiles="@(PluginDependencies2)" DestinationFolder="$(ApiDllTargetDir)" SkipUnchangedFiles="false" />
+		<Copy SourceFiles="@(GamepadLib)" DestinationFolder="$(ApiDllTargetDir)" SkipUnchangedFiles="true" />
+
+		<!-- Debugger-Attach via PowerShell -->
+		<Exec Command="powershell -ExecutionPolicy Bypass -File AttachDebugger.ps1" />
+		
+
+	</Target>
+</Project>

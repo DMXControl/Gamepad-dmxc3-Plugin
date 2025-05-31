@@ -1,0 +1,18 @@
+{
+  "profiles": {
+    "Profil \"1\"": {
+      "commandName": "Project"
+    },
+    "DummyLauncher": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Windows\\System32\\cmd.exe",
+      "commandLineArgs": "/c echo VS zufriedenstellen"
+    },
+    "DMXControlPlugin": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files (x86)\\DMXControl3\\Launcher\\DMXCLauncher.exe",
+      "workingDirectory": "C:\\Program Files (x86)\\DMXControl3\\GUI",
+      "commandLineArgs": "--fulldmxc"
+    }
+  }
+}
