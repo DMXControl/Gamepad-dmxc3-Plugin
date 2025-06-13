@@ -23,6 +23,7 @@ namespace LumosGUIPluginTemplates
         {
             Log.Info("Initialize " + nameof(GamepadPlugin));
             PEManager.getInstance().registerProjectExplorerBranch(new PEBranchTemplate());
+
         }
 
         protected override void startupPlugin()

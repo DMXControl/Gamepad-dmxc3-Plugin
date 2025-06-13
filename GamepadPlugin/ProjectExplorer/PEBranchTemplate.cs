@@ -8,6 +8,7 @@ using LumosLIB.Tools.I18n;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LumosGUIPluginTemplates.ProjectExplorer
@@ -19,7 +20,7 @@ namespace LumosGUIPluginTemplates.ProjectExplorer
         public PEBranchTemplate()
             : base("Gamepads", T._("Gamepads"))
         {
-
+            GamepadManager.Instance.GetAllControllers().ToList();
         }
 
         public override ENodeSorting AllowedNodeSorting => ENodeSorting.BY_DISPLAYNAME;
@@ -32,7 +33,7 @@ namespace LumosGUIPluginTemplates.ProjectExplorer
             {
                 yield return new TextBlock()
                 {
-                    Text = T._("The \"{0}\" branch contains demo nodes to show, how they are defined", this.DisplayName)
+                    Text = T._("The \"{0}\" branch contains connected Controllers (Gamepads)", this.DisplayName)
                 };
             }
         }
@@ -52,6 +53,7 @@ namespace LumosGUIPluginTemplates.ProjectExplorer
             if (ConnectionManager.getInstance().Connected)
             {
                 ISessionFacade s = ConnectionManager.getInstance().GuiSession;
+                RefreshControllersList();
             }
         }
 
@@ -87,18 +89,23 @@ namespace LumosGUIPluginTemplates.ProjectExplorer
             {
                 List<ActionItemMetadata> tmp = new List<ActionItemMetadata>()
                 {
-                    new ActionItemMetadata("ActCreatePETemplate", this.ID, T._("Refresh List"), KnownIcons.POSITION + "_add", EActionItemDisplayType.TOOL_STRIP | EActionItemDisplayType.CONTEXT_MENU, 1, "0_InputAssignmentBranch", null, RefreshControllersList)
+                    new ActionItemMetadata("ActCreatePETemplate", this.ID, T._("Refresh List"), KnownIcons.POSITION + "_add", EActionItemDisplayType.TOOL_STRIP | EActionItemDisplayType.CONTEXT_MENU, 1, "0_InputAssignmentBranch", null, RefreshControllersListM)
                 };
                 return tmp.AsReadOnly();
             }
         }
 
-        private void RefreshControllersList(object sender, ActionItemMetadata meta, EMouseButtons buttons, bool down)
+        private void RefreshControllersListM(object sender, ActionItemMetadata meta, EMouseButtons buttons, bool down)
+        {
+            RefreshControllersList();
+        }
+
+        private void RefreshControllersList()
         {
             base.ClearSubNodes();
-            foreach(var controller in GamepadManager.Instance.GetAllControllers())
+            foreach (var controller in GamepadManager.Instance.GetAllControllers())
             {
-                base.AddSubNode(new PENodeTemplate(controller) { DisplayName = T._("Gamepad {0}", controller.Name) });
+                base.AddSubNode(new PENodeTemplate(controller) { DisplayName = T._("Gamepad {0}", controller.ControllerIndex) });
             }
             // base.AddSubNode(new PENodeTemplate());
         }

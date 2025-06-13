@@ -4,225 +4,494 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GamepadPlugin.Views"
+        xmlns:viewModels="clr-namespace:GamepadPlugin.ViewModels" d:DataContext="{d:DesignInstance Type=viewModels:ControllerWindowViewModel}"
         mc:Ignorable="d"
-        Title="ControllerWindow" Height="450" Width="800">
+        Title="Controller Setup" Height="530" Width="800">
     <Grid>
-        <Viewbox Width="527.484" Height="366.082" Margin="100,30,0,0"
-                 HorizontalAlignment="Left" VerticalAlignment="Top"
-  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-            <Canvas Width="527.484" Height="366.082">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-                <!-- Shoulder Buttons Background -->
-                <Path Fill="#ff040509" Data="F1 M 361.667,0.000 C 357.982,0.014 354.825,0.520 351.795,1.790 C 348.066,3.353 344.529,6.072 341.806,7.764 C 339.083,9.456 337.100,10.146 333.923,10.396 C 330.746,10.646 326.337,10.469 317.082,10.380 C 311.029,10.322 302.521,10.306 293.281,10.299 C 292.169,10.293 290.900,10.291 289.265,10.291 L 278.205,10.291 L 248.064,10.291 L 237.004,10.291 C 235.369,10.291 234.100,10.293 232.987,10.299 C 223.747,10.306 215.240,10.322 209.187,10.380 C 199.932,10.469 195.523,10.646 192.346,10.396 C 189.168,10.146 187.186,9.456 184.463,7.764 C 181.740,6.072 178.203,3.353 174.473,1.790 C 171.443,0.520 168.286,0.015 164.601,0.001 C 163.751,-0.002 162.872,0.020 161.961,0.066 C 157.099,0.310 151.297,1.205 144.655,2.461 C 138.012,3.716 130.529,5.332 121.500,8.760 C 112.472,12.189 101.900,17.428 94.938,21.223 C 87.975,25.018 84.623,27.367 81.943,34.099 C 81.059,36.318 80.248,39.025 79.417,42.300 C 82.059,40.423 85.144,38.504 88.906,36.444 C 96.909,32.063 107.950,27.048 119.195,23.021 C 130.440,18.994 141.887,15.955 150.042,14.866 C 152.590,14.526 154.818,14.376 156.841,14.370 C 161.293,14.355 164.761,15.034 168.505,15.905 C 173.950,17.171 179.977,18.843 185.017,19.501 C 190.057,20.160 194.109,19.805 210.064,19.628 C 219.522,19.523 232.990,19.483 245.433,19.465 C 245.536,19.452 245.601,19.447 245.635,19.448 C 245.747,19.450 245.748,19.450 259.677,19.450 C 260.795,19.450 262.457,19.451 263.742,19.451 C 265.027,19.451 266.688,19.450 267.807,19.450 C 281.736,19.450 281.736,19.450 281.848,19.448 C 281.882,19.447 281.948,19.452 282.050,19.465 C 294.493,19.483 307.961,19.523 317.419,19.628 C 333.374,19.805 337.427,20.160 342.467,19.501 C 347.506,18.843 353.534,17.171 358.979,15.905 C 364.424,14.638 369.286,13.777 377.441,14.866 C 385.596,15.955 397.043,18.994 408.288,23.021 C 419.533,27.048 430.575,32.063 438.578,36.444 C 441.658,38.130 444.284,39.722 446.587,41.274 C 445.847,38.457 445.115,36.082 444.326,34.099 C 441.645,27.367 438.294,25.018 431.331,21.223 C 424.369,17.428 413.796,12.188 404.768,8.760 C 395.740,5.332 388.257,3.716 381.614,2.461 C 374.971,1.205 369.170,0.310 364.308,0.066 C 363.396,0.020 362.518,-0.003 361.667,0.000 L 361.667,0.000 Z"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Viewbox Width="527.484" Height="366.082" Margin="30,20,0,0"
+               HorizontalAlignment="Left" VerticalAlignment="Top"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                <Canvas Width="527.484" Height="366.082">
+
+                    <!-- Shoulder Buttons Background -->
+                    <Path Fill="#ff040509" Data="F1 M 361.667,0.000 C 357.982,0.014 354.825,0.520 351.795,1.790 C 348.066,3.353 344.529,6.072 341.806,7.764 C 339.083,9.456 337.100,10.146 333.923,10.396 C 330.746,10.646 326.337,10.469 317.082,10.380 C 311.029,10.322 302.521,10.306 293.281,10.299 C 292.169,10.293 290.900,10.291 289.265,10.291 L 278.205,10.291 L 248.064,10.291 L 237.004,10.291 C 235.369,10.291 234.100,10.293 232.987,10.299 C 223.747,10.306 215.240,10.322 209.187,10.380 C 199.932,10.469 195.523,10.646 192.346,10.396 C 189.168,10.146 187.186,9.456 184.463,7.764 C 181.740,6.072 178.203,3.353 174.473,1.790 C 171.443,0.520 168.286,0.015 164.601,0.001 C 163.751,-0.002 162.872,0.020 161.961,0.066 C 157.099,0.310 151.297,1.205 144.655,2.461 C 138.012,3.716 130.529,5.332 121.500,8.760 C 112.472,12.189 101.900,17.428 94.938,21.223 C 87.975,25.018 84.623,27.367 81.943,34.099 C 81.059,36.318 80.248,39.025 79.417,42.300 C 82.059,40.423 85.144,38.504 88.906,36.444 C 96.909,32.063 107.950,27.048 119.195,23.021 C 130.440,18.994 141.887,15.955 150.042,14.866 C 152.590,14.526 154.818,14.376 156.841,14.370 C 161.293,14.355 164.761,15.034 168.505,15.905 C 173.950,17.171 179.977,18.843 185.017,19.501 C 190.057,20.160 194.109,19.805 210.064,19.628 C 219.522,19.523 232.990,19.483 245.433,19.465 C 245.536,19.452 245.601,19.447 245.635,19.448 C 245.747,19.450 245.748,19.450 259.677,19.450 C 260.795,19.450 262.457,19.451 263.742,19.451 C 265.027,19.451 266.688,19.450 267.807,19.450 C 281.736,19.450 281.736,19.450 281.848,19.448 C 281.882,19.447 281.948,19.452 282.050,19.465 C 294.493,19.483 307.961,19.523 317.419,19.628 C 333.374,19.805 337.427,20.160 342.467,19.501 C 347.506,18.843 353.534,17.171 358.979,15.905 C 364.424,14.638 369.286,13.777 377.441,14.866 C 385.596,15.955 397.043,18.994 408.288,23.021 C 419.533,27.048 430.575,32.063 438.578,36.444 C 441.658,38.130 444.284,39.722 446.587,41.274 C 445.847,38.457 445.115,36.082 444.326,34.099 C 441.645,27.367 438.294,25.018 431.331,21.223 C 424.369,17.428 413.796,12.188 404.768,8.760 C 395.740,5.332 388.257,3.716 381.614,2.461 C 374.971,1.205 369.170,0.310 364.308,0.066 C 363.396,0.020 362.518,-0.003 361.667,0.000 L 361.667,0.000 Z"/>
+
+                    <!-- Left shoulder button -->
+                    <Path x:Name="LeftShoulderButton" Data="F1 M181.667,6.000 C 171.443,0.520 168.286,0.015 164.601,0.001 C 163.751,-0.002 162.872,0.020 161.961,0.066 C 157.099,0.310 151.297,1.205 144.655,2.461 C 138.012,3.716 130.529,5.332 121.500,8.760 C 112.472,12.189 101.900,17.428 94.938,21.223 C 87.975,25.018 84.623,27.367 81.943,34.099 C 81.059,36.318 80.248,39.025 79.417,42.300 C 82.059,40.423 85.144,38.504 88.906,36.444 C 96.909,32.063 107.950,27.048 119.195,23.021 C 130.440,18.994 141.887,15.955 150.042,14.866 C 152.590,14.526 154.818,14.376 156.841,14.370 C 161.293,14.355 164.761,15.034 168.505,15.905  Z">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsLbPressed, Mode=OneWay}" Value="True">
+                                        <Setter Property="Fill" Value="Lime"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsLbPressed, Mode=OneWay}" Value="False">
+                                        <Setter Property="Fill" Value="#ff000000"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+
+                    <!-- Right Shoulder button -->
+                    <Path x:Name="RightShoulderButton" Data="F1 M 361.667,0.000 C 333.374,19.805 337.427,20.160 342.467,19.501 C 347.506,18.843 353.534,17.171 358.979,15.905 C 364.424,14.638 369.286,13.777 377.441,14.866 C 385.596,15.955 397.043,18.994 408.288,23.021 C 419.533,27.048 430.575,32.063 438.578,36.444 C 441.658,38.130 444.284,39.722 446.587,41.274 C 445.847,38.457 445.115,36.082 444.326,34.099 C 441.645,27.367 438.294,25.018 431.331,21.223 C 424.369,17.428 413.796,12.188 404.768,8.760 C 395.740,5.332 388.257,3.716 381.614,2.461 C 374.971,1.205 369.170,0.310 364.308,0.066 C 363.396,0.020 362.518,-0.003 361.667,0.000 L 361.667,0.000 Z">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsRbPressed, Mode=OneWay}" Value="True">
+                                        <Setter Property="Fill" Value="Lime"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsRbPressed, Mode=OneWay}" Value="False">
+                                        <Setter Property="Fill" Value="#ff000000"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+
+                    <!-- Controller -->
+                    <Path Fill="#ff212528" Data="F1 M 156.841,13.321 C 154.818,13.327 152.590,13.477 150.042,13.817 C 141.887,14.906 130.440,17.945 119.195,21.972 C 107.950,25.999 96.909,31.013 88.906,35.395 C 80.903,39.776 75.939,43.524 71.862,47.576 C 67.784,51.629 64.593,55.985 58.847,69.222 C 53.101,82.459 44.788,104.610 33.544,136.774 C 22.299,168.938 8.117,211.130 2.698,246.365 C -2.721,281.599 0.620,309.850 7.431,327.340 C 14.242,344.830 24.427,351.485 32.308,356.122 C 40.189,360.759 45.700,363.338 48.993,364.743 C 52.285,366.149 53.348,366.377 55.172,365.756 C 56.995,365.136 59.579,363.667 64.040,360.661 C 68.502,357.655 74.841,353.112 81.055,346.686 C 87.269,340.260 93.358,331.951 100.915,321.887 C 108.472,311.822 117.498,300.003 125.234,290.154 C 132.970,280.304 139.417,272.425 149.016,268.199 C 158.615,263.972 171.366,263.399 192.566,263.113 C 213.341,262.832 242.140,262.827 263.742,262.827 C 285.344,262.827 314.143,262.832 334.918,263.113 C 356.118,263.399 368.868,263.972 378.467,268.199 C 388.066,272.425 394.513,280.304 402.249,290.154 C 409.985,300.003 419.011,311.822 426.568,321.887 C 434.125,331.951 440.214,340.260 446.428,346.686 C 452.642,353.112 458.982,357.655 463.444,360.661 C 467.905,363.667 470.488,365.136 472.311,365.756 C 474.135,366.377 475.199,366.149 478.491,364.743 C 481.783,363.338 487.294,360.759 495.175,356.122 C 503.057,351.485 513.242,344.830 520.053,327.340 C 526.863,309.850 530.205,281.599 524.786,246.365 C 519.367,211.130 505.185,168.938 493.940,136.774 C 482.695,104.610 474.383,82.459 468.637,69.222 C 462.891,55.985 459.700,51.629 455.622,47.576 C 451.545,43.524 446.581,39.776 438.578,35.395 C 430.575,31.013 419.533,25.999 408.288,21.972 C 397.043,17.945 385.596,14.906 377.441,13.817 C 369.286,12.728 364.424,13.589 358.979,14.855 C 353.534,16.122 347.506,17.793 342.467,18.452 C 337.427,19.110 333.374,18.756 317.419,18.578 C 307.961,18.473 294.493,18.433 282.050,18.416 C 281.948,18.402 281.882,18.398 281.848,18.399 C 281.736,18.401 281.736,18.401 267.807,18.401 C 266.688,18.401 265.027,18.402 263.742,18.402 C 262.457,18.402 260.795,18.401 259.677,18.401 C 245.748,18.401 245.747,18.401 245.635,18.399 C 245.601,18.398 245.536,18.402 245.433,18.416 C 232.990,18.433 219.522,18.473 210.064,18.578 C 194.109,18.756 190.057,19.110 185.017,18.452 C 179.977,17.793 173.950,16.122 168.505,14.855 C 164.761,13.985 161.293,13.306 156.841,13.321 L 156.841,13.321 Z"/>
+
+
+                    <!-- Button A -->
+                    <Path x:Name="ButtonA" Data="F1 M 400.381,118.161 C 390.264,118.161 382.063,126.362 382.063,136.478 C 382.063,136.478 382.063,136.478 382.063,136.478 C 382.063,146.594 390.264,154.795 400.380,154.795 C 400.380,154.795 400.380,154.795 400.381,154.795 C 410.497,154.795 418.698,146.595 418.698,136.478 C 418.698,136.478 418.698,136.478 418.698,136.478 C 418.698,126.362 410.497,118.161 400.381,118.161 C 400.381,118.161 400.381,118.161 400.381,118.161 Z">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsAPressed, Mode=OneWay}" Value="True">
+                                        <Setter Property="Fill" Value="Lime"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsAPressed, Mode=OneWay}" Value="False">
+                                        <Setter Property="Fill" Value="#ff000000"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+
+                    <!-- Button B -->
+                    <Path x:Name="ButtonB" Data="F1 M 439.375,81.494 C 429.259,81.494 421.058,89.695 421.058,99.811 C 421.058,109.927 429.259,118.128 439.375,118.129 C 449.491,118.129 457.692,109.928 457.692,99.812 C 457.692,99.811 457.692,99.811 457.692,99.811 C 457.692,89.695 449.492,81.494 439.375,81.494 C 439.375,81.494 439.375,81.494 439.375,81.494 Z">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsBPressed, Mode=OneWay}" Value="True">
+                                        <Setter Property="Fill" Value="Lime"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsBPressed, Mode=OneWay}" Value="False">
+                                        <Setter Property="Fill" Value="#ff000000"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+
+                    <!-- Button X -->
+                    <Path x:Name="ButtonX" Data="F1 M 363.714,81.494 C 353.598,81.494 345.397,89.695 345.397,99.811 C 345.397,109.927 353.598,118.128 363.714,118.129 C 373.830,118.129 382.031,109.928 382.031,99.812 C 382.031,99.811 382.031,99.811 382.031,99.811 C 382.031,89.695 373.830,81.494 363.714,81.494 C 363.714,81.494 363.714,81.494 363.714,81.494 Z">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsXPressed, Mode=OneWay}" Value="True">
+                                        <Setter Property="Fill" Value="Lime"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsXPressed, Mode=OneWay}" Value="False">
+                                        <Setter Property="Fill" Value="#ff000000"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+
+                    <!-- Button Y -->
+                    <Path x:Name="ButtonY" Data="F1 M 400.381,44.828 C 390.265,44.828 382.064,53.028 382.063,63.144 C 382.063,73.260 390.264,81.461 400.380,81.461 C 400.380,81.461 400.380,81.461 400.381,81.461 C 410.497,81.461 418.698,73.261 418.698,63.144 C 418.698,63.144 418.698,63.144 418.698,63.144 C 418.697,53.028 410.497,44.828 400.381,44.828 Z">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsYPressed, Mode=OneWay}" Value="True">
+                                        <Setter Property="Fill" Value="Lime"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsYPressed, Mode=OneWay}" Value="False">
+                                        <Setter Property="Fill" Value="#ff000000"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+
+                    <!-- Start (Window) Button -->
+                    <Path x:Name="StartButton" Data="F1 M 224.615,87.794 C 218.192,87.811 212.993,93.023 212.993,99.447 C 212.993,105.882 218.210,111.099 224.646,111.099 C 224.646,111.099 224.646,111.099 224.646,111.099 C 231.082,111.099 236.299,105.882 236.299,99.447 C 236.299,99.447 236.299,99.447 236.299,99.447 C 236.299,93.011 231.082,87.794 224.646,87.794 C 224.646,87.794 224.646,87.794 224.646,87.794 C 224.636,87.794 224.625,87.794 224.615,87.794 Z">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsWindowPressed, Mode=OneWay}" Value="True">
+                                        <Setter Property="Fill" Value="Lime"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsWindowPressed, Mode=OneWay}" Value="False">
+                                        <Setter Property="Fill" Value="#ff000000"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+
+                    <!-- Back  (Menu) Button -->
+                    <Path x:Name="BackButton" Data="F1 M 302.806,87.794 C 296.383,87.811 291.185,93.023 291.185,99.447 C 291.185,105.882 296.402,111.099 302.837,111.099 C 302.837,111.099 302.837,111.099 302.838,111.099 C 309.273,111.099 314.490,105.882 314.490,99.447 C 314.490,99.447 314.490,99.447 314.490,99.447 C 314.490,93.011 309.273,87.794 302.838,87.794 C 302.838,87.794 302.838,87.794 302.838,87.794 C 302.827,87.794 302.817,87.794 302.806,87.794 Z">
+                        <Path.Style>
+                            <Style TargetType="Path">
+                                <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsMenuPressed, Mode=OneWay}" Value="True">
+                                        <Setter Property="Fill" Value="Lime"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Path=Controller.IsMenuPressed, Mode=OneWay}" Value="False">
+                                        <Setter Property="Fill" Value="#ff000000"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Path.Style>
+                    </Path>
+
+                    <!-- DPAD Background -->
+                    <Path Fill="#ff1c2021" Data="F1 M 192.677,141.160 C 217.604,141.160 237.812,161.368 237.812,186.296 C 237.812,211.223 217.604,231.431 192.677,231.431 C 167.749,231.431 147.541,211.223 147.541,186.296 C 147.541,161.368 167.749,141.160 192.677,141.160 Z"/>
+
+                    <!-- DPAD -->
+                    <Path x:Name="DPadButtons" Fill="#ff0f0f0f" Data="F1 M 192.602,145.021 C 185.842,145.032 180.384,146.556 180.385,148.433 L 180.385,170.496 C 180.385,172.439 178.820,174.004 176.878,174.004 L 154.814,174.004 C 152.930,174.003 151.402,179.506 151.402,186.294 C 151.402,186.295 151.402,186.295 151.402,186.296 C 151.402,193.084 152.929,198.587 154.814,198.587 C 154.814,198.587 154.814,198.587 154.814,198.587 C 154.820,198.587 154.827,198.587 154.834,198.587 L 176.878,198.587 C 178.820,198.587 180.385,200.151 180.385,202.094 L 180.385,224.158 C 180.384,226.043 185.887,227.570 192.676,227.570 C 192.676,227.570 192.676,227.570 192.677,227.570 C 199.465,227.570 204.968,226.043 204.968,224.159 C 204.968,224.159 204.968,224.159 204.968,224.158 C 204.968,224.152 204.968,224.145 204.968,224.138 L 204.968,202.094 C 204.968,200.151 206.533,198.587 208.475,198.587 L 230.520,198.587 C 230.526,198.587 230.533,198.587 230.540,198.587 C 232.424,198.588 233.951,193.085 233.951,186.296 C 233.951,186.296 233.951,186.296 233.951,186.295 C 233.951,186.271 233.951,186.246 233.951,186.221 C 233.940,179.461 232.416,174.003 230.540,174.004 L 208.475,174.004 C 206.533,174.004 204.968,172.439 204.968,170.496 L 204.968,148.453 C 204.968,148.446 204.968,148.439 204.968,148.433 C 204.969,146.548 199.466,145.021 192.678,145.021 C 192.677,145.021 192.677,145.021 192.677,145.021 C 192.652,145.021 192.627,145.021 192.602,145.021 L 192.602,145.021 Z"/>
+
+                    <!-- Left Joycon Background -->
+                    <Path Fill="#ff2e3235" Data="F1 M 127.149,61.015 C 148.699,61.015 166.169,78.485 166.169,100.036 C 166.169,121.587 148.699,139.057 127.149,139.057 C 105.598,139.057 88.128,121.587 88.128,100.036 C 88.128,78.485 105.598,61.015 127.149,61.015 Z"/>
+
+                    <!-- Left Joycon Gnob -->
+                    <Path Fill="#ff000000" Data="F1 M 127.149,66.642 C 145.592,66.642 160.542,81.593 160.542,100.036 C 160.542,118.479 145.592,133.430 127.149,133.430 C 108.706,133.430 93.755,118.479 93.755,100.036 C 93.755,81.593 108.706,66.642 127.149,66.642 Z"/>
+
+                    <!-- Left Joycon Center -->
+                    <Path x:Name="LeftJoyconInner" Fill="#ff212629" Data="F1 M 127.149,69.811 C 143.841,69.811 157.373,83.343 157.373,100.036 C 157.373,116.729 143.841,130.261 127.149,130.261 C 110.456,130.261 96.924,116.729 96.924,100.036 C 96.924,83.343 110.456,69.811 127.149,69.811 Z"/>
+
+                    <!-- Left Joycon shadow -->
+                    <Path Fill="#ff1b1c20" Data="F1 M 127.149,78.561 C 139.009,78.561 148.624,88.175 148.624,100.036 C 148.624,111.897 139.009,121.511 127.149,121.511 C 115.288,121.511 105.673,111.897 105.673,100.036 C 105.673,88.175 115.288,78.561 127.149,78.561 Z"/>
+
+                    <!-- Detail -->
+                    <Path Opacity="0.4" Fill="#ff363e41" Data="F1 M 156.841,13.321 C 154.818,13.327 152.590,13.477 150.042,13.817 C 141.887,14.906 130.440,17.945 119.195,21.972 C 107.950,25.999 96.909,31.013 88.906,35.395 C 80.903,39.776 75.939,43.524 71.862,47.576 C 70.220,49.208 68.721,50.899 67.142,53.188 C 71.636,50.323 77.212,46.889 83.366,43.606 C 93.529,38.185 105.215,33.203 114.402,29.426 C 123.589,25.650 130.277,23.080 137.352,21.892 C 144.427,20.705 151.887,20.899 156.401,21.020 C 160.914,21.141 162.480,21.189 165.008,23.055 C 167.536,24.920 171.025,28.603 176.669,34.438 C 182.314,40.273 190.135,48.281 196.118,54.519 C 202.101,60.757 206.288,65.267 210.522,68.092 C 221.939,73.633 233.000,73.163 240.972,73.176 C 246.795,73.186 255.232,73.188 264.076,73.138 C 272.920,73.188 281.357,73.186 287.181,73.176 C 296.551,73.237 310.460,72.773 317.630,68.092 C 321.864,65.267 326.051,60.757 332.034,54.519 C 338.017,48.281 345.838,40.273 351.483,34.438 C 357.127,28.603 360.616,24.920 363.144,23.055 C 365.672,21.189 367.238,21.142 368.021,21.118 C 368.805,21.094 368.805,21.094 372.535,20.997 C 376.265,20.899 383.726,20.705 390.800,21.892 C 397.875,23.080 404.563,25.650 413.750,29.426 C 422.937,33.203 434.624,38.185 444.786,43.606 C 450.406,46.604 455.527,49.720 459.802,52.423 C 458.417,50.513 457.076,49.021 455.622,47.576 C 451.545,43.524 446.581,39.776 438.578,35.395 C 430.575,31.013 419.533,25.999 408.288,21.972 C 397.043,17.945 385.596,14.906 377.441,13.817 C 369.286,12.728 364.424,13.589 358.979,14.855 C 353.534,16.122 347.506,17.793 342.467,18.452 C 337.427,19.110 333.374,18.756 317.419,18.578 C 307.961,18.473 294.493,18.433 282.050,18.416 C 281.948,18.402 281.882,18.398 281.848,18.399 C 281.736,18.401 281.736,18.401 267.807,18.401 C 266.688,18.401 265.027,18.402 263.742,18.402 C 262.457,18.402 260.795,18.401 259.677,18.401 C 245.748,18.401 245.747,18.401 245.635,18.399 C 245.601,18.398 245.536,18.402 245.433,18.416 C 232.990,18.433 219.522,18.473 210.064,18.578 C 194.109,18.756 190.057,19.110 185.017,18.452 C 179.977,17.793 173.950,16.122 168.505,14.855 C 164.761,13.985 161.293,13.306 156.841,13.321 L 156.841,13.321 Z"/>
+
+                    <!-- Window Button Symbol -->
+                    <Path Fill="#ffffffff" Data="F1 M 224.229,99.885 L 229.516,99.885 L 229.516,103.212 L 224.229,103.212 L 224.229,99.885 Z M 222.359,98.016 L 222.359,98.951 L 222.359,105.082 L 231.386,105.082 L 231.386,98.016 L 222.359,98.016 Z M 217.906,93.811 L 217.906,94.746 L 217.906,100.877 L 221.633,100.877 L 221.633,99.007 L 219.776,99.007 L 219.776,95.681 L 225.063,95.681 L 225.063,97.448 L 226.933,97.448 L 226.933,93.811 L 217.906,93.811 Z"/>
+
+                    <!-- Right Joycon Background -->
+                    <Path Fill="#ff2e3235" Data="F1 M 333.602,141.616 C 355.153,141.616 372.623,159.087 372.623,180.637 C 372.623,202.188 355.153,219.658 333.602,219.658 C 312.052,219.658 294.581,202.188 294.581,180.637 C 294.581,159.087 312.052,141.616 333.602,141.616 Z"/>
+
+                    <!-- Right Joycon Ring -->
+                    <Path Fill="#ff000000" Data="F1 M 333.602,147.243 C 352.045,147.243 366.996,162.194 366.996,180.637 C 366.996,199.080 352.045,214.031 333.602,214.031 C 315.159,214.031 300.208,199.080 300.208,180.637 C 300.208,162.194 315.159,147.243 333.602,147.243 Z"/>
+
+                    <!-- Right Joycon  -->
+                    <Path x:Name="RightJoyconInner" Fill="#ff212629" Data="F1 M 333.602,150.413 C 350.295,150.413 363.827,163.945 363.827,180.637 C 363.827,197.330 350.295,210.862 333.602,210.862 C 316.910,210.862 303.378,197.330 303.378,180.637 C 303.378,163.945 316.910,150.413 333.602,150.413 Z"/>
+
+                    <!-- svg8/layer1/g968/circle1026 -->
+                    <Path Fill="#ff1b1c20" Data="F1 M 333.602,159.162 C 345.463,159.162 355.078,168.777 355.078,180.637 C 355.078,192.498 345.463,202.113 333.602,202.113 C 321.741,202.113 312.127,192.498 312.127,180.637 C 312.127,168.777 321.741,159.162 333.602,159.162 Z"/>
+
+                    <!-- X-Button -->
+                    <Path Fill="#ff009bd2" Data="F1 M 374.527,110.112 L 366.486,99.025 L 373.228,89.510 L 367.385,89.510 L 363.589,95.129 L 359.793,89.510 L 354.199,89.510 L 360.692,99.025 L 352.901,110.112 L 358.719,110.112 L 363.589,103.095 L 368.459,110.112 L 374.527,110.112 Z"/>
+
+                    <!-- svg8/layer1/g968/path1034 -->
+                    <Path Fill="#ffdcb32b" Data="F1 M 390.442,52.843 L 398.033,64.206 L 398.033,73.446 L 402.728,73.446 L 402.728,64.206 L 410.320,52.843 L 404.676,52.843 L 400.381,59.436 L 396.085,52.843 L 390.442,52.843 Z"/>
+
+                    <!-- svg8/layer1/g968/path1036 -->
+                    <Path Fill="#ffce382f" Data="F1 M 438.027,106.491 L 438.027,101.622 L 439.501,101.622 C 441.723,101.622 442.947,102.296 442.947,104.194 C 442.947,105.817 441.723,106.491 439.501,106.491 L 438.027,106.491 Z M 438.027,97.576 L 438.027,93.131 L 438.402,93.131 C 440.450,93.131 441.523,93.755 441.523,95.229 C 441.523,96.952 440.425,97.576 438.402,97.576 L 438.027,97.576 Z M 433.333,89.510 L 433.333,110.112 L 441.149,110.112 C 445.419,110.112 447.891,107.765 447.891,104.369 C 447.891,101.047 446.068,99.624 443.496,99.174 C 445.244,98.275 446.068,96.652 446.068,94.754 C 446.068,90.834 443.272,89.510 439.725,89.510 L 433.333,89.510 Z"/>
+
+                    <!-- svg8/layer1/g968/path1038 -->
+                    <Path Fill="#ff87be56" Data="F1 M 402.703,138.538 L 398.058,138.538 L 400.356,132.545 L 400.405,132.545 L 402.703,138.538 Z M 402.553,126.177 L 398.208,126.177 L 389.892,146.779 L 394.937,146.779 L 396.460,142.659 L 404.301,142.659 L 405.825,146.779 L 410.869,146.779 L 402.553,126.177 Z"/>
+
+                    <!-- svg8/layer1/g968/path842 -->
+                    <Path Fill="#ffffffff" Data="F1 M 297.220,101.988 C 296.703,101.979 296.277,102.389 296.268,102.906 C 296.259,103.422 296.670,103.848 297.186,103.857 C 297.197,103.857 297.208,103.857 297.220,103.857 L 308.455,103.857 C 308.972,103.867 309.398,103.456 309.407,102.939 C 309.416,102.423 309.005,101.997 308.489,101.988 C 308.478,101.988 308.467,101.988 308.455,101.988 L 297.220,101.988 Z M 297.220,98.512 C 296.703,98.503 296.277,98.914 296.268,99.430 C 296.259,99.946 296.670,100.372 297.186,100.382 C 297.197,100.382 297.208,100.382 297.220,100.382 L 308.455,100.382 C 308.972,100.391 309.398,99.980 309.407,99.464 C 309.416,98.947 309.005,98.521 308.489,98.512 C 308.478,98.512 308.467,98.512 308.455,98.512 L 297.220,98.512 Z M 297.220,95.036 C 296.703,95.027 296.277,95.438 296.268,95.954 C 296.259,96.470 296.670,96.896 297.186,96.905 C 297.197,96.906 297.208,96.906 297.220,96.905 L 308.455,96.905 C 308.972,96.915 309.398,96.504 309.407,95.987 C 309.416,95.471 309.005,95.045 308.489,95.036 C 308.478,95.036 308.467,95.036 308.455,95.036 L 297.220,95.036 Z"/>
+
+                    <!-- svg8/layer1/g968/path884 -->
+                    <Path Fill="#ffbfbfbf" Data="F1 M 263.471,27.333 C 274.039,27.333 282.586,35.878 282.586,46.445 C 282.586,57.013 274.039,65.559 263.471,65.559 C 252.904,65.559 244.359,57.013 244.359,46.445 C 244.359,35.878 252.904,27.333 263.471,27.333 Z M 263.471,25.463 C 251.893,25.463 242.489,34.867 242.489,46.445 C 242.489,58.023 251.893,67.429 263.471,67.429 C 275.049,67.429 284.455,58.023 284.455,46.445 C 284.455,34.867 275.049,25.463 263.471,25.463 Z"/>
+
+                    <!-- Left Shoulder Trigger -->
+                    <Path x:Name="LeftShoulderTrigger" Fill="#ff363e41" Data="F1 M 108.498,0.204 C 98.796,-0.817 93.382,2.284 92.859,3.103 C 89.330,6.715 86.091,11.020 86.221,14.709 C 86.536,23.623 87.020,39.914 87.020,39.914 L 115.763,24.744 C 115.763,24.744 109.716,1.389 108.498,0.204 Z" HorizontalAlignment="Center" Canvas.Top="-13.029" VerticalAlignment="Center"/>
+
+                    <!-- svg8/<Pfad> -->
+                    <Path Fill="#ff040509" Data="F1 M 125.601,20.810 C 125.601,20.810 116.950,24.043 115.763,24.744 C 115.478,24.814 108.774,1.247 108.498,0.204 C 109.519,-0.264 125.601,20.810 125.601,20.810 Z" HorizontalAlignment="Center" Canvas.Top="-13.029" VerticalAlignment="Center"/>
+
+                    <!-- svg8/<Pfad> -->
+                    <Path x:Name="RightShoulderTrigger" Fill="#ff363e41" Data="F1 M 418.689,2.634 C 427.570,1.651 432.526,4.636 433.005,5.424 C 436.235,8.900 439.201,13.044 439.081,16.594 C 438.793,25.174 438.350,40.854 438.350,40.854 L 412.038,26.253 C 412.038,26.253 417.574,3.774 418.689,2.634 Z" HorizontalAlignment="Center" Canvas.Top="-14" VerticalAlignment="Center"/>
+
+                    <!-- svg8/<Pfad> -->
+                    <Path Fill="#ff040509" Data="F1 M 403.032,22.466 C 403.032,22.466 410.951,25.578 412.038,26.253 C 412.299,26.320 418.436,3.637 418.689,2.634 C 417.754,2.183 403.032,22.466 403.032,22.466 Z" HorizontalAlignment="Center" Canvas.Top="-14" VerticalAlignment="Top"/>
+                </Canvas>
+            </Viewbox>
+
+            <TextBlock Margin="10, 10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Run Text="Left Trigger:" />
+                <Run Text="{Binding Path=Controller.LeftTriggerValue, Mode=OneWay}" />
+            </TextBlock>
+
+            <TextBlock Margin="480, 10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Run Text="Right Trigger:" />
+                <Run Text="{Binding Path=Controller.RightTriggerValue, Mode=OneWay}" />
+            </TextBlock>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="90, 5, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="1" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="170, 0, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="2" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="380, 0, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="3" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="460, 0, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="4" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="110, 70, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="5" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="160, 180, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="6" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="210, 140, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="7" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="250, 180, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="8" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="210, 230, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="9" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="230, 80, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="10" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="320, 80, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="11" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="370, 85, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="12" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="410, 40, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="13" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="430, 160, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="15" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="470, 120, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="14" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="380, 190, 0, 0">
+                <Ellipse Fill="DodgerBlue" />
+                <TextBlock HorizontalAlignment="Center" Text="16" VerticalAlignment="Center" FontWeight="Bold" FontSize="16" Foreground="White" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Margin="10">
+                    <TextBlock >
+                        <Run Text="Left Joycon" FontWeight="Bold" FontSize="16" />
+                        <LineBreak />
+                        <Run Text="Absolute" FontWeight="Bold" />
+                        <LineBreak />
+                        <Run Text="X:" />
+                        <Run Text="{Binding Path=Controller.LeftThumbAbsoluteX, Mode=OneWay}" />
+                        <Run Text="Y:" />
+                        <Run Text="{Binding Path=Controller.LeftThumbAbsoluteY, Mode=OneWay}" />
+                        <LineBreak />
+                        <Run Text="Relative" FontWeight="Bold" />
+                        <LineBreak />
+                        <Run Text="X:" />
+                        <Run Text="{Binding Path=Controller.LeftThumbStick.X, Mode=OneWay}" />
+                        <Run Text="Y:" />
+                        <Run Text="{Binding Path=Controller.LeftThumbStick.Y, Mode=OneWay}" />
+                    </TextBlock>
+                    <Slider Minimum="0.1" Maximum="10" Value="{Binding Path=Controller.LeftAbsoluteSpeed, Mode=TwoWay}" Margin="0,5,0,0" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Margin="10">
+                    <TextBlock>
+                        <Run Text="Right Joycon" FontWeight="Bold" FontSize="16" />
+                        <LineBreak />
+                        <Run Text="Absolute" FontWeight="Bold" />
+                        <LineBreak />
+                        <Run Text="X:" />
+                        <Run Text="{Binding Path=Controller.RightThumbAbsoluteX, Mode=OneWay}" />
+                        <Run Text="Y:" />
+                        <Run Text="{Binding Path=Controller.RightThumbAbsoluteY, Mode=OneWay}" />
+                        <LineBreak />
+                        <Run Text="Relative" FontWeight="Bold" />
+                        <LineBreak />
+                        <Run Text="X:" />
+                        <Run Text="{Binding Path=Controller.RightThumbStick.X, Mode=OneWay}" />
+                        <Run Text="Y:" />
+                        <Run Text="{Binding Path=Controller.RightThumbStick.Y, Mode=OneWay}" />
+                    </TextBlock>
+                    <Slider Minimum="0.1" Maximum="10" Value="{Binding Path=Controller.RightAbsoluteSpeed, Mode=TwoWay}" Margin="0,5,0,0" />
+                </StackPanel>
                 
-                <!-- Left shoulder button -->
-                <Path x:Name="LeftShoulderButton" Data="F1 M181.667,6.000 C 171.443,0.520 168.286,0.015 164.601,0.001 C 163.751,-0.002 162.872,0.020 161.961,0.066 C 157.099,0.310 151.297,1.205 144.655,2.461 C 138.012,3.716 130.529,5.332 121.500,8.760 C 112.472,12.189 101.900,17.428 94.938,21.223 C 87.975,25.018 84.623,27.367 81.943,34.099 C 81.059,36.318 80.248,39.025 79.417,42.300 C 82.059,40.423 85.144,38.504 88.906,36.444 C 96.909,32.063 107.950,27.048 119.195,23.021 C 130.440,18.994 141.887,15.955 150.042,14.866 C 152.590,14.526 154.818,14.376 156.841,14.370 C 161.293,14.355 164.761,15.034 168.505,15.905  Z">
-                    <Path.Style>
-                        <Style TargetType="Path">
-                            <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsLbPressed, Mode=OneWay}" Value="True">
-                                    <Setter Property="Fill" Value="Lime"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsLbPressed, Mode=OneWay}" Value="False">
-                                    <Setter Property="Fill" Value="#ff000000"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Path.Style>
-                </Path>
+            </Grid>
+            
+        </Grid>
 
-                <!-- Right Shoulder button -->
-                <Path x:Name="RightShoulderButton" Data="F1 M 361.667,0.000 C 333.374,19.805 337.427,20.160 342.467,19.501 C 347.506,18.843 353.534,17.171 358.979,15.905 C 364.424,14.638 369.286,13.777 377.441,14.866 C 385.596,15.955 397.043,18.994 408.288,23.021 C 419.533,27.048 430.575,32.063 438.578,36.444 C 441.658,38.130 444.284,39.722 446.587,41.274 C 445.847,38.457 445.115,36.082 444.326,34.099 C 441.645,27.367 438.294,25.018 431.331,21.223 C 424.369,17.428 413.796,12.188 404.768,8.760 C 395.740,5.332 388.257,3.716 381.614,2.461 C 374.971,1.205 369.170,0.310 364.308,0.066 C 363.396,0.020 362.518,-0.003 361.667,0.000 L 361.667,0.000 Z">
-                    <Path.Style>
-                        <Style TargetType="Path">
-                            <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsRbPressed, Mode=OneWay}" Value="True">
-                                    <Setter Property="Fill" Value="Lime"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsRbPressed, Mode=OneWay}" Value="False">
-                                    <Setter Property="Fill" Value="#ff000000"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Path.Style>
-                </Path>
+        <!-- Controller Options -->
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                <!-- Controller -->
-                <Path Fill="#ff212528" Data="F1 M 156.841,13.321 C 154.818,13.327 152.590,13.477 150.042,13.817 C 141.887,14.906 130.440,17.945 119.195,21.972 C 107.950,25.999 96.909,31.013 88.906,35.395 C 80.903,39.776 75.939,43.524 71.862,47.576 C 67.784,51.629 64.593,55.985 58.847,69.222 C 53.101,82.459 44.788,104.610 33.544,136.774 C 22.299,168.938 8.117,211.130 2.698,246.365 C -2.721,281.599 0.620,309.850 7.431,327.340 C 14.242,344.830 24.427,351.485 32.308,356.122 C 40.189,360.759 45.700,363.338 48.993,364.743 C 52.285,366.149 53.348,366.377 55.172,365.756 C 56.995,365.136 59.579,363.667 64.040,360.661 C 68.502,357.655 74.841,353.112 81.055,346.686 C 87.269,340.260 93.358,331.951 100.915,321.887 C 108.472,311.822 117.498,300.003 125.234,290.154 C 132.970,280.304 139.417,272.425 149.016,268.199 C 158.615,263.972 171.366,263.399 192.566,263.113 C 213.341,262.832 242.140,262.827 263.742,262.827 C 285.344,262.827 314.143,262.832 334.918,263.113 C 356.118,263.399 368.868,263.972 378.467,268.199 C 388.066,272.425 394.513,280.304 402.249,290.154 C 409.985,300.003 419.011,311.822 426.568,321.887 C 434.125,331.951 440.214,340.260 446.428,346.686 C 452.642,353.112 458.982,357.655 463.444,360.661 C 467.905,363.667 470.488,365.136 472.311,365.756 C 474.135,366.377 475.199,366.149 478.491,364.743 C 481.783,363.338 487.294,360.759 495.175,356.122 C 503.057,351.485 513.242,344.830 520.053,327.340 C 526.863,309.850 530.205,281.599 524.786,246.365 C 519.367,211.130 505.185,168.938 493.940,136.774 C 482.695,104.610 474.383,82.459 468.637,69.222 C 462.891,55.985 459.700,51.629 455.622,47.576 C 451.545,43.524 446.581,39.776 438.578,35.395 C 430.575,31.013 419.533,25.999 408.288,21.972 C 397.043,17.945 385.596,14.906 377.441,13.817 C 369.286,12.728 364.424,13.589 358.979,14.855 C 353.534,16.122 347.506,17.793 342.467,18.452 C 337.427,19.110 333.374,18.756 317.419,18.578 C 307.961,18.473 294.493,18.433 282.050,18.416 C 281.948,18.402 281.882,18.398 281.848,18.399 C 281.736,18.401 281.736,18.401 267.807,18.401 C 266.688,18.401 265.027,18.402 263.742,18.402 C 262.457,18.402 260.795,18.401 259.677,18.401 C 245.748,18.401 245.747,18.401 245.635,18.399 C 245.601,18.398 245.536,18.402 245.433,18.416 C 232.990,18.433 219.522,18.473 210.064,18.578 C 194.109,18.756 190.057,19.110 185.017,18.452 C 179.977,17.793 173.950,16.122 168.505,14.855 C 164.761,13.985 161.293,13.306 156.841,13.321 L 156.841,13.321 Z"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="#" FontWeight="Bold" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="0" Grid.Column="1" Text="Name" FontWeight="Bold" Margin="0,0,10,0" />
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Setting" FontWeight="Bold" Margin="0,0,10,0" />
 
-                <!-- Button A -->
-                <Path x:Name="ButtonA" Data="F1 M 400.381,118.161 C 390.264,118.161 382.063,126.362 382.063,136.478 C 382.063,136.478 382.063,136.478 382.063,136.478 C 382.063,146.594 390.264,154.795 400.380,154.795 C 400.380,154.795 400.380,154.795 400.381,154.795 C 410.497,154.795 418.698,146.595 418.698,136.478 C 418.698,136.478 418.698,136.478 418.698,136.478 C 418.698,126.362 410.497,118.161 400.381,118.161 C 400.381,118.161 400.381,118.161 400.381,118.161 Z">
-                    <Path.Style>
-                        <Style TargetType="Path">
-                            <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsAPressed, Mode=OneWay}" Value="True">
-                                    <Setter Property="Fill" Value="Lime"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsAPressed, Mode=OneWay}" Value="False">
-                                    <Setter Property="Fill" Value="#ff000000"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Path.Style>
-                </Path>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="1" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="Left Trigger" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Path=TriggerOperations, Mode=OneWay}" />
 
-                <!-- Button B -->
-                <Path x:Name="ButtonB" Data="F1 M 439.375,81.494 C 429.259,81.494 421.058,89.695 421.058,99.811 C 421.058,109.927 429.259,118.128 439.375,118.129 C 449.491,118.129 457.692,109.928 457.692,99.812 C 457.692,99.811 457.692,99.811 457.692,99.811 C 457.692,89.695 449.492,81.494 439.375,81.494 C 439.375,81.494 439.375,81.494 439.375,81.494 Z">
-                    <Path.Style>
-                        <Style TargetType="Path">
-                            <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsBPressed, Mode=OneWay}" Value="True">
-                                    <Setter Property="Fill" Value="Lime"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsBPressed}" Value="False">
-                                    <Setter Property="Fill" Value="#ff000000"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Path.Style>
-                </Path>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="1" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Left Bumper" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="2" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Button X -->
-                <Path x:Name="ButtonX" Data="F1 M 363.714,81.494 C 353.598,81.494 345.397,89.695 345.397,99.811 C 345.397,109.927 353.598,118.128 363.714,118.129 C 373.830,118.129 382.031,109.928 382.031,99.812 C 382.031,99.811 382.031,99.811 382.031,99.811 C 382.031,89.695 373.830,81.494 363.714,81.494 C 363.714,81.494 363.714,81.494 363.714,81.494 Z">
-                    <Path.Style>
-                        <Style TargetType="Path">
-                            <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsXPressed, Mode=OneWay}" Value="True">
-                                    <Setter Property="Fill" Value="Lime"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsXPressed}" Value="False">
-                                    <Setter Property="Fill" Value="#ff000000"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Path.Style>
-                </Path>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="2" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Right Bumper" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="3" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Button Y -->
-                <Path x:Name="ButtonY" Data="F1 M 400.381,44.828 C 390.265,44.828 382.064,53.028 382.063,63.144 C 382.063,73.260 390.264,81.461 400.380,81.461 C 400.380,81.461 400.380,81.461 400.381,81.461 C 410.497,81.461 418.698,73.261 418.698,63.144 C 418.698,63.144 418.698,63.144 418.698,63.144 C 418.697,53.028 410.497,44.828 400.381,44.828 Z">
-                    <Path.Style>
-                        <Style TargetType="Path">
-                            <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsYPressed, Mode=OneWay}" Value="True">
-                                    <Setter Property="Fill" Value="Lime"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsYPressed}" Value="False">
-                                    <Setter Property="Fill" Value="#ff000000"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Path.Style>
-                </Path>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="4" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="Right trigger" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="4" Grid.Column="2" ItemsSource="{Binding Path=TriggerOperations, Mode=OneWay}" />
 
-                <!-- Start (Window) Button -->
-                <Path x:Name="StartButton" Data="F1 M 224.615,87.794 C 218.192,87.811 212.993,93.023 212.993,99.447 C 212.993,105.882 218.210,111.099 224.646,111.099 C 224.646,111.099 224.646,111.099 224.646,111.099 C 231.082,111.099 236.299,105.882 236.299,99.447 C 236.299,99.447 236.299,99.447 236.299,99.447 C 236.299,93.011 231.082,87.794 224.646,87.794 C 224.646,87.794 224.646,87.794 224.646,87.794 C 224.636,87.794 224.625,87.794 224.615,87.794 Z">
-                    <Path.Style>
-                        <Style TargetType="Path">
-                            <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Path=IsWindowPressed, Mode=OneWay}" Value="True">
-                                    <Setter Property="Fill" Value="Lime"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsWindowPressed}" Value="False">
-                                    <Setter Property="Fill" Value="#ff000000"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Path.Style>
-                </Path>
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="5" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="5" Grid.Column="1" Text="Left stick (Move)" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="5" Grid.Column="2" ItemsSource="{Binding Path=ThumbstickOperations, Mode=OneWay}" SelectedItem="{Binding LeftThumbOperation}" />
 
-                <!-- Back  (Menu) Button -->
-                <Path x:Name="BackButton" Data="F1 M 302.806,87.794 C 296.383,87.811 291.185,93.023 291.185,99.447 C 291.185,105.882 296.402,111.099 302.837,111.099 C 302.837,111.099 302.837,111.099 302.838,111.099 C 309.273,111.099 314.490,105.882 314.490,99.447 C 314.490,99.447 314.490,99.447 314.490,99.447 C 314.490,93.011 309.273,87.794 302.838,87.794 C 302.838,87.794 302.838,87.794 302.838,87.794 C 302.827,87.794 302.817,87.794 302.806,87.794 Z">
-                    <Path.Style>
-                        <Style TargetType="Path">
-                            <!-- Bind to IsAPressed and set the Fill color when true to lime else black using Triggers -->
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsMenuPressed, Mode=OneWay}" Value="True">
-                                    <Setter Property="Fill" Value="Lime"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding IsMenuPressed}" Value="False">
-                                    <Setter Property="Fill" Value="#ff000000"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Path.Style>
-                </Path>
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="5" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="6" Grid.Column="1" Text="Left stick (click)" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="6" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- DPAD Background -->
-                <Path Fill="#ff1c2021" Data="F1 M 192.677,141.160 C 217.604,141.160 237.812,161.368 237.812,186.296 C 237.812,211.223 217.604,231.431 192.677,231.431 C 167.749,231.431 147.541,211.223 147.541,186.296 C 147.541,161.368 167.749,141.160 192.677,141.160 Z"/>
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="6" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="7" Grid.Column="1" Text="Pad Left" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="7" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- DPAD -->
-                <Path x:Name="DPadButtons" Fill="#ff0f0f0f" Data="F1 M 192.602,145.021 C 185.842,145.032 180.384,146.556 180.385,148.433 L 180.385,170.496 C 180.385,172.439 178.820,174.004 176.878,174.004 L 154.814,174.004 C 152.930,174.003 151.402,179.506 151.402,186.294 C 151.402,186.295 151.402,186.295 151.402,186.296 C 151.402,193.084 152.929,198.587 154.814,198.587 C 154.814,198.587 154.814,198.587 154.814,198.587 C 154.820,198.587 154.827,198.587 154.834,198.587 L 176.878,198.587 C 178.820,198.587 180.385,200.151 180.385,202.094 L 180.385,224.158 C 180.384,226.043 185.887,227.570 192.676,227.570 C 192.676,227.570 192.676,227.570 192.677,227.570 C 199.465,227.570 204.968,226.043 204.968,224.159 C 204.968,224.159 204.968,224.159 204.968,224.158 C 204.968,224.152 204.968,224.145 204.968,224.138 L 204.968,202.094 C 204.968,200.151 206.533,198.587 208.475,198.587 L 230.520,198.587 C 230.526,198.587 230.533,198.587 230.540,198.587 C 232.424,198.588 233.951,193.085 233.951,186.296 C 233.951,186.296 233.951,186.296 233.951,186.295 C 233.951,186.271 233.951,186.246 233.951,186.221 C 233.940,179.461 232.416,174.003 230.540,174.004 L 208.475,174.004 C 206.533,174.004 204.968,172.439 204.968,170.496 L 204.968,148.453 C 204.968,148.446 204.968,148.439 204.968,148.433 C 204.969,146.548 199.466,145.021 192.678,145.021 C 192.677,145.021 192.677,145.021 192.677,145.021 C 192.652,145.021 192.627,145.021 192.602,145.021 L 192.602,145.021 Z"/>
+            <TextBlock Grid.Row="8" Grid.Column="0" Text="7" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="8" Grid.Column="1" Text="Pad Up" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="8" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Left Joycon Background -->
-                <Path Fill="#ff2e3235" Data="F1 M 127.149,61.015 C 148.699,61.015 166.169,78.485 166.169,100.036 C 166.169,121.587 148.699,139.057 127.149,139.057 C 105.598,139.057 88.128,121.587 88.128,100.036 C 88.128,78.485 105.598,61.015 127.149,61.015 Z"/>
+            <TextBlock Grid.Row="9" Grid.Column="0" Text="8" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="9" Grid.Column="1" Text="Pad Right" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="9" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Left Joycon Gnob -->
-                <Path Fill="#ff000000" Data="F1 M 127.149,66.642 C 145.592,66.642 160.542,81.593 160.542,100.036 C 160.542,118.479 145.592,133.430 127.149,133.430 C 108.706,133.430 93.755,118.479 93.755,100.036 C 93.755,81.593 108.706,66.642 127.149,66.642 Z"/>
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="9" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="10" Grid.Column="1" Text="Pad Down" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="10" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Left Joycon Center -->
-                <Path x:Name="LeftJoyconInner" Fill="#ff212629" Data="F1 M 127.149,69.811 C 143.841,69.811 157.373,83.343 157.373,100.036 C 157.373,116.729 143.841,130.261 127.149,130.261 C 110.456,130.261 96.924,116.729 96.924,100.036 C 96.924,83.343 110.456,69.811 127.149,69.811 Z"/>
+            <TextBlock Grid.Row="11" Grid.Column="0" Text="10" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="11" Grid.Column="1" Text="Back" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="11" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Left Joycon shadow -->
-                <Path Fill="#ff1b1c20" Data="F1 M 127.149,78.561 C 139.009,78.561 148.624,88.175 148.624,100.036 C 148.624,111.897 139.009,121.511 127.149,121.511 C 115.288,121.511 105.673,111.897 105.673,100.036 C 105.673,88.175 115.288,78.561 127.149,78.561 Z"/>
+            <TextBlock Grid.Row="12" Grid.Column="0" Text="11" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="12" Grid.Column="1" Text="Start" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="12" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Detail -->
-                <Path Opacity="0.4" Fill="#ff363e41" Data="F1 M 156.841,13.321 C 154.818,13.327 152.590,13.477 150.042,13.817 C 141.887,14.906 130.440,17.945 119.195,21.972 C 107.950,25.999 96.909,31.013 88.906,35.395 C 80.903,39.776 75.939,43.524 71.862,47.576 C 70.220,49.208 68.721,50.899 67.142,53.188 C 71.636,50.323 77.212,46.889 83.366,43.606 C 93.529,38.185 105.215,33.203 114.402,29.426 C 123.589,25.650 130.277,23.080 137.352,21.892 C 144.427,20.705 151.887,20.899 156.401,21.020 C 160.914,21.141 162.480,21.189 165.008,23.055 C 167.536,24.920 171.025,28.603 176.669,34.438 C 182.314,40.273 190.135,48.281 196.118,54.519 C 202.101,60.757 206.288,65.267 210.522,68.092 C 221.939,73.633 233.000,73.163 240.972,73.176 C 246.795,73.186 255.232,73.188 264.076,73.138 C 272.920,73.188 281.357,73.186 287.181,73.176 C 296.551,73.237 310.460,72.773 317.630,68.092 C 321.864,65.267 326.051,60.757 332.034,54.519 C 338.017,48.281 345.838,40.273 351.483,34.438 C 357.127,28.603 360.616,24.920 363.144,23.055 C 365.672,21.189 367.238,21.142 368.021,21.118 C 368.805,21.094 368.805,21.094 372.535,20.997 C 376.265,20.899 383.726,20.705 390.800,21.892 C 397.875,23.080 404.563,25.650 413.750,29.426 C 422.937,33.203 434.624,38.185 444.786,43.606 C 450.406,46.604 455.527,49.720 459.802,52.423 C 458.417,50.513 457.076,49.021 455.622,47.576 C 451.545,43.524 446.581,39.776 438.578,35.395 C 430.575,31.013 419.533,25.999 408.288,21.972 C 397.043,17.945 385.596,14.906 377.441,13.817 C 369.286,12.728 364.424,13.589 358.979,14.855 C 353.534,16.122 347.506,17.793 342.467,18.452 C 337.427,19.110 333.374,18.756 317.419,18.578 C 307.961,18.473 294.493,18.433 282.050,18.416 C 281.948,18.402 281.882,18.398 281.848,18.399 C 281.736,18.401 281.736,18.401 267.807,18.401 C 266.688,18.401 265.027,18.402 263.742,18.402 C 262.457,18.402 260.795,18.401 259.677,18.401 C 245.748,18.401 245.747,18.401 245.635,18.399 C 245.601,18.398 245.536,18.402 245.433,18.416 C 232.990,18.433 219.522,18.473 210.064,18.578 C 194.109,18.756 190.057,19.110 185.017,18.452 C 179.977,17.793 173.950,16.122 168.505,14.855 C 164.761,13.985 161.293,13.306 156.841,13.321 L 156.841,13.321 Z"/>
+            <TextBlock Grid.Row="13" Grid.Column="0" Text="12" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="13" Grid.Column="1" Text="X" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="13" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Window Button Symbol -->
-                <Path Fill="#ffffffff" Data="F1 M 224.229,99.885 L 229.516,99.885 L 229.516,103.212 L 224.229,103.212 L 224.229,99.885 Z M 222.359,98.016 L 222.359,98.951 L 222.359,105.082 L 231.386,105.082 L 231.386,98.016 L 222.359,98.016 Z M 217.906,93.811 L 217.906,94.746 L 217.906,100.877 L 221.633,100.877 L 221.633,99.007 L 219.776,99.007 L 219.776,95.681 L 225.063,95.681 L 225.063,97.448 L 226.933,97.448 L 226.933,93.811 L 217.906,93.811 Z"/>
+            <TextBlock Grid.Row="14" Grid.Column="0" Text="13" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="14" Grid.Column="1" Text="Y" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="14" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Right Joycon Background -->
-                <Path Fill="#ff2e3235" Data="F1 M 333.602,141.616 C 355.153,141.616 372.623,159.087 372.623,180.637 C 372.623,202.188 355.153,219.658 333.602,219.658 C 312.052,219.658 294.581,202.188 294.581,180.637 C 294.581,159.087 312.052,141.616 333.602,141.616 Z"/>
+            <TextBlock Grid.Row="15" Grid.Column="0" Text="14" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="15" Grid.Column="1" Text="B" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="15" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- Right Joycon Ring -->
-                <Path Fill="#ff000000" Data="F1 M 333.602,147.243 C 352.045,147.243 366.996,162.194 366.996,180.637 C 366.996,199.080 352.045,214.031 333.602,214.031 C 315.159,214.031 300.208,199.080 300.208,180.637 C 300.208,162.194 315.159,147.243 333.602,147.243 Z"/>
+            <TextBlock Grid.Row="16" Grid.Column="0" Text="15" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="16" Grid.Column="1" Text="A" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="16" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" SelectedItem="{Binding Path=ButtonAOperation}" />
 
-                <!-- Right Joycon  -->
-                <Path x:Name="RightJoyconInner" Fill="#ff212629" Data="F1 M 333.602,150.413 C 350.295,150.413 363.827,163.945 363.827,180.637 C 363.827,197.330 350.295,210.862 333.602,210.862 C 316.910,210.862 303.378,197.330 303.378,180.637 C 303.378,163.945 316.910,150.413 333.602,150.413 Z"/>
+            <TextBlock Grid.Row="17" Grid.Column="0" Text="16" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="17" Grid.Column="1" Text="Right Stick (Move)" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="17" Grid.Column="2" ItemsSource="{Binding Path=ThumbstickOperations, Mode=OneWay}" />
 
-                <!-- svg8/layer1/g968/circle1026 -->
-                <Path Fill="#ff1b1c20" Data="F1 M 333.602,159.162 C 345.463,159.162 355.078,168.777 355.078,180.637 C 355.078,192.498 345.463,202.113 333.602,202.113 C 321.741,202.113 312.127,192.498 312.127,180.637 C 312.127,168.777 321.741,159.162 333.602,159.162 Z"/>
+            <TextBlock Grid.Row="18" Grid.Column="0" Text="16" Margin="0,0,10,0"  />
+            <TextBlock Grid.Row="18" Grid.Column="1" Text="Right Stick (Click)" Margin="0,0,10,0" />
+            <ComboBox Grid.Row="18" Grid.Column="2" ItemsSource="{Binding Path=ButtonOperations, Mode=OneWay}" />
 
-                <!-- X-Button -->
-                <Path Fill="#ff009bd2" Data="F1 M 374.527,110.112 L 366.486,99.025 L 373.228,89.510 L 367.385,89.510 L 363.589,95.129 L 359.793,89.510 L 354.199,89.510 L 360.692,99.025 L 352.901,110.112 L 358.719,110.112 L 363.589,103.095 L 368.459,110.112 L 374.527,110.112 Z"/>
+            <TextBlock Grid.Row="19" Grid.Column="1" Text="Poll Speed" Margin="0,10,0,0" />
+            <Slider Grid.Row="19" Grid.Column="2" Minimum="10" Maximum="1000" Value="{Binding Path=Controller.PollSpeed, Mode=TwoWay}" Margin="0,5,0,0" />
 
-                <!-- svg8/layer1/g968/path1034 -->
-                <Path Fill="#ffdcb32b" Data="F1 M 390.442,52.843 L 398.033,64.206 L 398.033,73.446 L 402.728,73.446 L 402.728,64.206 L 410.320,52.843 L 404.676,52.843 L 400.381,59.436 L 396.085,52.843 L 390.442,52.843 Z"/>
-
-                <!-- svg8/layer1/g968/path1036 -->
-                <Path Fill="#ffce382f" Data="F1 M 438.027,106.491 L 438.027,101.622 L 439.501,101.622 C 441.723,101.622 442.947,102.296 442.947,104.194 C 442.947,105.817 441.723,106.491 439.501,106.491 L 438.027,106.491 Z M 438.027,97.576 L 438.027,93.131 L 438.402,93.131 C 440.450,93.131 441.523,93.755 441.523,95.229 C 441.523,96.952 440.425,97.576 438.402,97.576 L 438.027,97.576 Z M 433.333,89.510 L 433.333,110.112 L 441.149,110.112 C 445.419,110.112 447.891,107.765 447.891,104.369 C 447.891,101.047 446.068,99.624 443.496,99.174 C 445.244,98.275 446.068,96.652 446.068,94.754 C 446.068,90.834 443.272,89.510 439.725,89.510 L 433.333,89.510 Z"/>
-
-                <!-- svg8/layer1/g968/path1038 -->
-                <Path Fill="#ff87be56" Data="F1 M 402.703,138.538 L 398.058,138.538 L 400.356,132.545 L 400.405,132.545 L 402.703,138.538 Z M 402.553,126.177 L 398.208,126.177 L 389.892,146.779 L 394.937,146.779 L 396.460,142.659 L 404.301,142.659 L 405.825,146.779 L 410.869,146.779 L 402.553,126.177 Z"/>
-
-                <!-- svg8/layer1/g968/path842 -->
-                <Path Fill="#ffffffff" Data="F1 M 297.220,101.988 C 296.703,101.979 296.277,102.389 296.268,102.906 C 296.259,103.422 296.670,103.848 297.186,103.857 C 297.197,103.857 297.208,103.857 297.220,103.857 L 308.455,103.857 C 308.972,103.867 309.398,103.456 309.407,102.939 C 309.416,102.423 309.005,101.997 308.489,101.988 C 308.478,101.988 308.467,101.988 308.455,101.988 L 297.220,101.988 Z M 297.220,98.512 C 296.703,98.503 296.277,98.914 296.268,99.430 C 296.259,99.946 296.670,100.372 297.186,100.382 C 297.197,100.382 297.208,100.382 297.220,100.382 L 308.455,100.382 C 308.972,100.391 309.398,99.980 309.407,99.464 C 309.416,98.947 309.005,98.521 308.489,98.512 C 308.478,98.512 308.467,98.512 308.455,98.512 L 297.220,98.512 Z M 297.220,95.036 C 296.703,95.027 296.277,95.438 296.268,95.954 C 296.259,96.470 296.670,96.896 297.186,96.905 C 297.197,96.906 297.208,96.906 297.220,96.905 L 308.455,96.905 C 308.972,96.915 309.398,96.504 309.407,95.987 C 309.416,95.471 309.005,95.045 308.489,95.036 C 308.478,95.036 308.467,95.036 308.455,95.036 L 297.220,95.036 Z"/>
-
-                <!-- svg8/layer1/g968/path884 -->
-                <Path Fill="#ffbfbfbf" Data="F1 M 263.471,27.333 C 274.039,27.333 282.586,35.878 282.586,46.445 C 282.586,57.013 274.039,65.559 263.471,65.559 C 252.904,65.559 244.359,57.013 244.359,46.445 C 244.359,35.878 252.904,27.333 263.471,27.333 Z M 263.471,25.463 C 251.893,25.463 242.489,34.867 242.489,46.445 C 242.489,58.023 251.893,67.429 263.471,67.429 C 275.049,67.429 284.455,58.023 284.455,46.445 C 284.455,34.867 275.049,25.463 263.471,25.463 Z"/>
-
-                <!-- Left Shoulder Trigger -->
-                <Path x:Name="LeftShoulderTrigger" Fill="#ff363e41" Data="F1 M 108.498,0.204 C 98.796,-0.817 93.382,2.284 92.859,3.103 C 89.330,6.715 86.091,11.020 86.221,14.709 C 86.536,23.623 87.020,39.914 87.020,39.914 L 115.763,24.744 C 115.763,24.744 109.716,1.389 108.498,0.204 Z" HorizontalAlignment="Center" Canvas.Top="-13.029" VerticalAlignment="Center"/>
-
-                <!-- svg8/<Pfad> -->
-                <Path Fill="#ff040509" Data="F1 M 125.601,20.810 C 125.601,20.810 116.950,24.043 115.763,24.744 C 115.478,24.814 108.774,1.247 108.498,0.204 C 109.519,-0.264 125.601,20.810 125.601,20.810 Z" HorizontalAlignment="Center" Canvas.Top="-13.029" VerticalAlignment="Center"/>
-
-                <!-- svg8/<Pfad> -->
-                <Path x:Name="RightShoulderTrigger" Fill="#ff363e41" Data="F1 M 418.689,2.634 C 427.570,1.651 432.526,4.636 433.005,5.424 C 436.235,8.900 439.201,13.044 439.081,16.594 C 438.793,25.174 438.350,40.854 438.350,40.854 L 412.038,26.253 C 412.038,26.253 417.574,3.774 418.689,2.634 Z" HorizontalAlignment="Center" Canvas.Top="-14" VerticalAlignment="Center"/>
-
-                <!-- svg8/<Pfad> -->
-                <Path Fill="#ff040509" Data="F1 M 403.032,22.466 C 403.032,22.466 410.951,25.578 412.038,26.253 C 412.299,26.320 418.436,3.637 418.689,2.634 C 417.754,2.183 403.032,22.466 403.032,22.466 Z" HorizontalAlignment="Center" Canvas.Top="-14" VerticalAlignment="Top"/>
-            </Canvas>
-        </Viewbox>
+            <TextBlock Grid.Row="20" Grid.Column="1" Text="Stick drift threshold" Margin="0,10,0,0" />
+            <TextBox Grid.Row="20" Grid.Column="2" Text="{Binding Path=Controller.StickDriftCorrectionThreshold, Mode=TwoWay}" Margin="0,10,0,0" />
+        </Grid>
         <!--<Line StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" X1="10" X2="200" Y1="45" Y2="45" Stroke="OrangeRed" />
         <Line StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" X1="10" X2="230" Y1="130" Y2="130" Stroke="OrangeRed" />
         <Line StrokeThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" X1="10" X2="260" Y1="230" Y2="230" Stroke="OrangeRed" />

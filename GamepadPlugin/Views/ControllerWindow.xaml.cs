@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GamepadPlugin.InputControllers;
+using GamepadPlugin.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -19,13 +22,15 @@ namespace GamepadPlugin.Views
     /// </summary>
     public partial class ControllerWindow : Window
     {
-        private readonly GamepadController controller;
+        private ControllerWindowViewModel viewModel;
+
+
 
         public ControllerWindow(GamepadController controller)
         {
             InitializeComponent();
-            this.controller = controller;
-            this.DataContext = controller;
+            this.viewModel = new ViewModels.ControllerWindowViewModel(controller);
+            this.DataContext = viewModel;
         }
     }
 }

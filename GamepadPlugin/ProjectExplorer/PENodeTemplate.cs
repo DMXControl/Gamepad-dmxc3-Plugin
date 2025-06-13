@@ -1,4 +1,4 @@
-﻿using GamepadPlugin;
+﻿using GamepadPlugin.InputControllers;
 using GamepadPlugin.Views;
 using Lumos.GUI;
 using Lumos.GUI.Facade;
