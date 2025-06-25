@@ -3,6 +3,8 @@ using Lumos.GUI.Run;
 using Lumos.GUI.Windows;
 using LumosGUIPluginTemplates.ProjectExplorer;
 using LumosLIB.Kernel.Log;
+using SDL2;
+using System;
 
 namespace LumosGUIPluginTemplates
 {
@@ -29,6 +31,15 @@ namespace LumosGUIPluginTemplates
         protected override void startupPlugin()
         {
             Log.Info("Startup " + nameof(GamepadPlugin));
+            // Initialize SDL2
+            if (SDL.SDL_Init(SDL.SDL_INIT_VIDEO | SDL.SDL_INIT_GAMECONTROLLER) < 0)
+            {
+                throw new Exception($"SDL could not initialize! SDL_Error: {SDL.SDL_GetError()}");
+            }
+
+            
+
+            SDL.SDL_JoystickEventState(SDL.SDL_ENABLE);
         }
 
 

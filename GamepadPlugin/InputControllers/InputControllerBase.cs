@@ -61,11 +61,6 @@ namespace GamepadPlugin.InputControllers
         protected InputControllerBase(int controllerIndex)
         {
             this.controllerIndex = controllerIndex;
-            // Initialize SDL2
-            if (SDL.SDL_Init(SDL.SDL_INIT_VIDEO | SDL.SDL_INIT_GAMECONTROLLER) < 0)
-            {
-                throw new Exception($"SDL could not initialize! SDL_Error: {SDL.SDL_GetError()}");
-            }
 
             int joystickCount = SDL.SDL_NumJoysticks();
             if (joystickCount < controllerIndex)
@@ -73,7 +68,6 @@ namespace GamepadPlugin.InputControllers
                 throw new Exception("No joysticks connected!");
             }
 
-            SDL.SDL_JoystickEventState(SDL.SDL_ENABLE);
             IntPtr gameController = SDL.SDL_GameControllerOpen(controllerIndex);
             if (gameController == IntPtr.Zero)
             {
@@ -165,6 +159,11 @@ namespace GamepadPlugin.InputControllers
                     }
                 }
             }
+        }
+
+        public virtual void ShakeController(ushort lowFreq, ushort highFreq, uint milliseconds)
+        {
+            SDL.SDL_GameControllerRumble(gameControllerPtr, lowFreq, highFreq, milliseconds);
         }
 
         private void InitInDispatcherTimer()
